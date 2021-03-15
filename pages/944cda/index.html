@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>部署方案对接朝阳 | 实践体系</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/rat-skill/img/favicon.ico">
+    <link rel="manifest" href="/rat-skill/manifest.json">
+    <script charset="utf-8" src="/rat-skill/js/readmore.js"></script>
+    <meta name="description" content="deploy.sh">
+    <meta name="twitter:title" content="部署方案对接朝阳">
+    <meta name="twitter:description" content="deploy.sh">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="https://my.samyz.cn/03.%E5%AE%9E%E8%B7%B5%E9%83%A8%E7%BD%B2/02.%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%96%BD/40.%E4%BC%9A%E8%AE%AE%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9Fmeeting/10.%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88%E5%AF%B9%E6%8E%A5%E6%9C%9D%E9%98%B3.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="部署方案对接朝阳">
+    <meta property="og:description" content="deploy.sh">
+    <meta property="og:url" content="https://my.samyz.cn/03.%E5%AE%9E%E8%B7%B5%E9%83%A8%E7%BD%B2/02.%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%96%BD/40.%E4%BC%9A%E8%AE%AE%E6%96%87%E6%A1%A3%E7%B3%BB%E7%BB%9Fmeeting/10.%E9%83%A8%E7%BD%B2%E6%96%B9%E6%A1%88%E5%AF%B9%E6%8E%A5%E6%9C%9D%E9%98%B3.html">
+    <meta property="og:site_name" content="samyzh">
+    <meta property="article:published_time" content="2021-03-15T16:11:36.000Z">
+    <meta property="article:tag" content="null">
+    <meta itemprop="name" content="部署方案对接朝阳">
+    <meta itemprop="description" content="deploy.sh">
+    <meta name="keywords" content="vuepress,theme,doc">
+    <meta name="theme-color" content="#11a8cd">
+    <link rel="preload" href="/rat-skill/assets/css/0.styles.fd5cffd6.css" as="style"><link rel="preload" href="/rat-skill/assets/js/app.599d5844.js" as="script"><link rel="preload" href="/rat-skill/assets/js/3.f126e8d0.js" as="script"><link rel="preload" href="/rat-skill/assets/js/54.ed07e83c.js" as="script"><link rel="preload" href="/rat-skill/assets/js/11.cb3a2149.js" as="script"><link rel="prefetch" href="/rat-skill/assets/js/10.39285ced.js"><link rel="prefetch" href="/rat-skill/assets/js/12.b397c09c.js"><link rel="prefetch" href="/rat-skill/assets/js/13.3fb29af1.js"><link rel="prefetch" href="/rat-skill/assets/js/14.6db777b4.js"><link rel="prefetch" href="/rat-skill/assets/js/15.6c1c6523.js"><link rel="prefetch" href="/rat-skill/assets/js/16.4b8521a8.js"><link rel="prefetch" href="/rat-skill/assets/js/17.e7fa1ba2.js"><link rel="prefetch" href="/rat-skill/assets/js/18.346d8569.js"><link rel="prefetch" href="/rat-skill/assets/js/19.4bce4e65.js"><link rel="prefetch" href="/rat-skill/assets/js/20.aeb46736.js"><link rel="prefetch" href="/rat-skill/assets/js/21.7b50c889.js"><link rel="prefetch" href="/rat-skill/assets/js/22.b48b722e.js"><link rel="prefetch" href="/rat-skill/assets/js/23.683e7423.js"><link rel="prefetch" href="/rat-skill/assets/js/24.5999ba0a.js"><link rel="prefetch" href="/rat-skill/assets/js/25.500dbf5e.js"><link rel="prefetch" href="/rat-skill/assets/js/26.d725e9c0.js"><link rel="prefetch" href="/rat-skill/assets/js/27.cff46bf5.js"><link rel="prefetch" href="/rat-skill/assets/js/28.761eecbb.js"><link rel="prefetch" href="/rat-skill/assets/js/29.a996ac29.js"><link rel="prefetch" href="/rat-skill/assets/js/30.44f535f9.js"><link rel="prefetch" href="/rat-skill/assets/js/31.06594f62.js"><link rel="prefetch" href="/rat-skill/assets/js/32.a6f44fe1.js"><link rel="prefetch" href="/rat-skill/assets/js/33.796287dc.js"><link rel="prefetch" href="/rat-skill/assets/js/34.0bfb14ab.js"><link rel="prefetch" href="/rat-skill/assets/js/35.bd516963.js"><link rel="prefetch" href="/rat-skill/assets/js/36.54c5b1c2.js"><link rel="prefetch" href="/rat-skill/assets/js/37.27e5ed44.js"><link rel="prefetch" href="/rat-skill/assets/js/38.fb7633c8.js"><link rel="prefetch" href="/rat-skill/assets/js/39.9d385359.js"><link rel="prefetch" href="/rat-skill/assets/js/4.33709025.js"><link rel="prefetch" href="/rat-skill/assets/js/40.aa3e7255.js"><link rel="prefetch" href="/rat-skill/assets/js/41.da6309b9.js"><link rel="prefetch" href="/rat-skill/assets/js/42.4b8f1203.js"><link rel="prefetch" href="/rat-skill/assets/js/43.c87b0437.js"><link rel="prefetch" href="/rat-skill/assets/js/44.456ba43b.js"><link rel="prefetch" href="/rat-skill/assets/js/45.4fee53de.js"><link rel="prefetch" href="/rat-skill/assets/js/46.537960e0.js"><link rel="prefetch" href="/rat-skill/assets/js/47.60fd53ba.js"><link rel="prefetch" href="/rat-skill/assets/js/48.8ea898c4.js"><link rel="prefetch" href="/rat-skill/assets/js/49.eced2d6a.js"><link rel="prefetch" href="/rat-skill/assets/js/5.a02934c5.js"><link rel="prefetch" href="/rat-skill/assets/js/50.4f3fe449.js"><link rel="prefetch" href="/rat-skill/assets/js/51.90a3ac8c.js"><link rel="prefetch" href="/rat-skill/assets/js/52.4af2d5c6.js"><link rel="prefetch" href="/rat-skill/assets/js/53.d94b0c5b.js"><link rel="prefetch" href="/rat-skill/assets/js/55.a67bcec5.js"><link rel="prefetch" href="/rat-skill/assets/js/56.7ad9cd1b.js"><link rel="prefetch" href="/rat-skill/assets/js/57.cc7bc58c.js"><link rel="prefetch" href="/rat-skill/assets/js/58.8edc5758.js"><link rel="prefetch" href="/rat-skill/assets/js/59.e4842a16.js"><link rel="prefetch" href="/rat-skill/assets/js/6.0e8f881a.js"><link rel="prefetch" href="/rat-skill/assets/js/60.7e6eb9d8.js"><link rel="prefetch" href="/rat-skill/assets/js/61.cde8e89c.js"><link rel="prefetch" href="/rat-skill/assets/js/62.29e4620d.js"><link rel="prefetch" href="/rat-skill/assets/js/63.e719b65f.js"><link rel="prefetch" href="/rat-skill/assets/js/64.c58663aa.js"><link rel="prefetch" href="/rat-skill/assets/js/65.3d7c3982.js"><link rel="prefetch" href="/rat-skill/assets/js/66.23144d38.js"><link rel="prefetch" href="/rat-skill/assets/js/67.72f5355e.js"><link rel="prefetch" href="/rat-skill/assets/js/68.4a2e807c.js"><link rel="prefetch" href="/rat-skill/assets/js/69.57c3c7e9.js"><link rel="prefetch" href="/rat-skill/assets/js/7.677816c4.js"><link rel="prefetch" href="/rat-skill/assets/js/70.fda6984e.js"><link rel="prefetch" href="/rat-skill/assets/js/71.89a92760.js"><link rel="prefetch" href="/rat-skill/assets/js/72.1e38db1b.js"><link rel="prefetch" href="/rat-skill/assets/js/73.7c0bda5e.js"><link rel="prefetch" href="/rat-skill/assets/js/74.c2845b65.js"><link rel="prefetch" href="/rat-skill/assets/js/75.e4e36cb9.js"><link rel="prefetch" href="/rat-skill/assets/js/76.21244fdb.js"><link rel="prefetch" href="/rat-skill/assets/js/77.d64b452c.js"><link rel="prefetch" href="/rat-skill/assets/js/78.efee8905.js"><link rel="prefetch" href="/rat-skill/assets/js/79.f4185cac.js"><link rel="prefetch" href="/rat-skill/assets/js/8.fccc0b30.js"><link rel="prefetch" href="/rat-skill/assets/js/80.d8b1a3d5.js"><link rel="prefetch" href="/rat-skill/assets/js/81.e7ce5604.js"><link rel="prefetch" href="/rat-skill/assets/js/82.076a30a2.js"><link rel="prefetch" href="/rat-skill/assets/js/83.89741780.js"><link rel="prefetch" href="/rat-skill/assets/js/84.a7cbca71.js"><link rel="prefetch" href="/rat-skill/assets/js/85.8e687eb1.js"><link rel="prefetch" href="/rat-skill/assets/js/86.08d71a86.js"><link rel="prefetch" href="/rat-skill/assets/js/87.7549c95a.js"><link rel="prefetch" href="/rat-skill/assets/js/88.06a352a6.js"><link rel="prefetch" href="/rat-skill/assets/js/89.233119d7.js"><link rel="prefetch" href="/rat-skill/assets/js/9.b893ea03.js"><link rel="prefetch" href="/rat-skill/assets/js/90.0a6ed001.js"><link rel="prefetch" href="/rat-skill/assets/js/91.5fba849e.js"><link rel="prefetch" href="/rat-skill/assets/js/92.2a93d1e6.js"><link rel="prefetch" href="/rat-skill/assets/js/93.63296c0b.js"><link rel="prefetch" href="/rat-skill/assets/js/vendors~dplayer.2aacfbd6.js">
+    <link rel="stylesheet" href="/rat-skill/assets/css/0.styles.fd5cffd6.css">
+  </head>
+  <body class="theme-mode-light">
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/rat-skill/" class="home-link router-link-active"><img src="/rat-skill/img/logo.png" alt="实践体系" class="logo"> <span class="site-name can-hide">实践体系</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/rat-skill/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rat-skill/rule/" class="nav-link">规范模式Rule</a></div><div class="nav-item"><a href="/rat-skill/comp/" class="nav-link">公共组件Comp</a></div><div class="nav-item"><a href="/rat-skill/devops/" class="nav-link">实践部署Ops</a></div><div class="nav-item"><a href="/rat-skill/wiki/" class="nav-link">体系实践Wiki</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="知识体系Map" class="dropdown-title"><a href="/rat-skill/map/" class="link-title">知识体系Map</a> <span class="title" style="display:none;">知识体系Map</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>教程相关</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/rat-skill/pages/online_md/" class="nav-link">使用md编写在线文档</a></li></ul></li><li class="dropdown-item"><h4>技术文档</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/rat-skill/pages/b78a79/" class="nav-link">git使用教程</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🌹快捷入口" class="dropdown-title"><a href="/rat-skill/link/" class="link-title">🌹快捷入口</a> <span class="title" style="display:none;">🌹快捷入口</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>快捷链接</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/rat-skill/pages/devLink/" class="nav-link">开发收藏</a></li></ul></li><li class="dropdown-item"><h4>💖体系入口</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://samyzh.github.io/rat-skill" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  工作实践体系
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://samyzh.github.io/rat-summ" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  写作认知体系
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://samyzh.github.io/rat-invest" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  投资理财体系
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/samyzh/rat-doc" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="display:none;"><!----> <nav class="nav-links"><div class="nav-item"><a href="/rat-skill/" class="nav-link">首页</a></div><div class="nav-item"><a href="/rat-skill/rule/" class="nav-link">规范模式Rule</a></div><div class="nav-item"><a href="/rat-skill/comp/" class="nav-link">公共组件Comp</a></div><div class="nav-item"><a href="/rat-skill/devops/" class="nav-link">实践部署Ops</a></div><div class="nav-item"><a href="/rat-skill/wiki/" class="nav-link">体系实践Wiki</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="知识体系Map" class="dropdown-title"><a href="/rat-skill/map/" class="link-title">知识体系Map</a> <span class="title" style="display:none;">知识体系Map</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>教程相关</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/rat-skill/pages/online_md/" class="nav-link">使用md编写在线文档</a></li></ul></li><li class="dropdown-item"><h4>技术文档</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/rat-skill/pages/b78a79/" class="nav-link">git使用教程</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="🌹快捷入口" class="dropdown-title"><a href="/rat-skill/link/" class="link-title">🌹快捷入口</a> <span class="title" style="display:none;">🌹快捷入口</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>快捷链接</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/rat-skill/pages/devLink/" class="nav-link">开发收藏</a></li></ul></li><li class="dropdown-item"><h4>💖体系入口</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="https://samyzh.github.io/rat-skill" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  工作实践体系
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://samyzh.github.io/rat-summ" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  写作认知体系
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-subitem"><a href="https://samyzh.github.io/rat-invest" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  投资理财体系
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <a href="https://github.com/samyzh/rat-doc" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>常用入口</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/sysLink/" class="sidebar-link">系统链接</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>部署技能</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/a8b2ea/" class="sidebar-link">nginx前端常用设置</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>项目实施</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>电商CRM商城App</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/d72e37/" class="sidebar-link">项目介绍</a></li><li><a href="/rat-skill/pages/1f6324/" class="sidebar-link">活动打折策略</a></li><li><a href="/rat-skill/pages/f69316/" class="sidebar-link">重构lib-ext</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading open"><span>会议文档系统meeting</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/576e3d/" class="sidebar-link">项目介绍</a></li><li><a href="/rat-skill/pages/014913/" class="sidebar-link">会议系统部署优化</a></li><li><a href="/rat-skill/pages/944cda/" aria-current="page" class="active sidebar-link">部署方案对接朝阳</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/rat-skill/pages/944cda/#前端部署" class="sidebar-link">前端部署</a></li><li class="sidebar-sub-header"><a href="/rat-skill/pages/944cda/#docker处理" class="sidebar-link">docker处理</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/rat-skill/pages/944cda/#启动脚本" class="sidebar-link">启动脚本</a></li><li class="sidebar-sub-header"><a href="/rat-skill/pages/944cda/#镜像设置meeting-cy" class="sidebar-link">镜像设置meeting-cy</a></li></ul></li></ul></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>电子屏系统kinfo</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/f6a16a/" class="sidebar-link">项目介绍</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>电子标签etag</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/48afcd/" class="sidebar-link">项目介绍</a></li><li><a href="/rat-skill/pages/abc62a/" class="sidebar-link">电子标签总结、优化</a></li><li><a href="/rat-skill/pages/056a62/" class="sidebar-link">电子标签部署</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>内容管理系统cms</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/aefe23/" class="sidebar-link">项目介绍</a></li><li><a href="/rat-skill/pages/7d22dd/" class="sidebar-link">内容爬虫书本</a></li><li><a href="/rat-skill/pages/869270/" class="sidebar-link">各种账户导入功能</a></li><li><a href="/rat-skill/pages/c7d753/" class="sidebar-link">docker-nginx涉及到前端的整合部署</a></li><li><a href="/rat-skill/pages/2b859d/" class="sidebar-link">设备管理版本更新后台交互及逻辑</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>上云门户相关</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/3c19b3/" class="sidebar-link">门户及子系统使用手册</a></li><li><a href="/rat-skill/pages/0b6867/" class="sidebar-link">系统路由配置规则</a></li><li><a href="/rat-skill/pages/56e320/" class="sidebar-link">门户重构</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>智能巡检</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/b36588/" class="sidebar-link">项目介绍</a></li><li><a href="/rat-skill/pages/c4dfb7/" class="sidebar-link">首页图表</a></li><li><a href="/rat-skill/pages/a347d2/" class="sidebar-link">pdf导出</a></li><li><a href="/rat-skill/pages/46dd44/" class="sidebar-link">html离线导出</a></li><li><a href="/rat-skill/pages/f9ca73/" class="sidebar-link">脚手架生产业务模板</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>实时引擎</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/b90ad8/" class="sidebar-link">项目介绍</a></li><li><a href="/rat-skill/pages/7c07b6/" class="sidebar-link">首页流程动画</a></li><li><a href="/rat-skill/pages/807b37/" class="sidebar-link">模型开发流程</a></li><li><a href="/rat-skill/pages/3ff69f/" class="sidebar-link">实时监控图表</a></li><li><a href="/rat-skill/pages/eecb2b/" class="sidebar-link">实时引擎前端部署</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>wdp数据底座</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/06e4c3/" class="sidebar-link">ambari前端改造及部署</a></li></ul></section></li><li><section class="sidebar-group is-sub-group depth-1"><p class="sidebar-heading"><span>ubr</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/rat-skill/pages/d4438d/" class="sidebar-link">项目介绍</a></li></ul></section></li></ul></section></li></ul> <div class="sidebar-slot sidebar-slot-bottom"><!-- 正方形 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="3508773082"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div></aside> <div><main class="page"><div class="theme-vdoing-wrapper "><div class="articleInfo-wrap" data-v-33863c7e><div class="articleInfo" data-v-33863c7e><ul class="breadcrumbs" data-v-33863c7e><li data-v-33863c7e><a href="/rat-skill/" title="首页" class="iconfont icon-home router-link-active" data-v-33863c7e></a></li> <li data-v-33863c7e><a href="/rat-skill/devops" title="实践部署-目录页" data-v-33863c7e>实践部署</a></li> <li data-v-33863c7e><a href="/rat-skill/devops/#项目实施" title="实践部署#项目实施" data-v-33863c7e>项目实施</a></li> <li data-v-33863c7e><a href="/rat-skill/devops/#会议文档系统meeting" title="实践部署#会议文档系统meeting" data-v-33863c7e>会议文档系统meeting</a></li></ul> <div class="info" data-v-33863c7e><div title="作者" class="author iconfont icon-touxiang" data-v-33863c7e><a href="https://github.com/samyzh" target="_blank" title="作者" class="beLink" data-v-33863c7e>samyzh</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-33863c7e><a href="javascript:;" data-v-33863c7e>2021-03-15</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">
+          部署方案对接朝阳
+        </h1>  <div class="theme-vdoing-content content__default"><h2 id="前端部署"><a href="#前端部署" class="header-anchor">#</a> 前端部署</h2> <p>deploy.sh</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>npm run build
+scp -r -P 9630 dist samy@39.108.58.xxx:/home/samy/deploy/kezheng-web/
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>添加自己阿里云镜像及公司镜像加速路径：</p> <div class="language-bash line-numbers-mode"><pre class="language-bash"><code><span class="token function">sudo</span> <span class="token function">mkdir</span> -p /etc/docker
+<span class="token function">sudo</span> <span class="token function">tee</span> /etc/docker/daemon.json <span class="token operator">&lt;&lt;-</span><span class="token string">'EOF'
+{
+  &quot;registry-mirrors&quot;: [&quot;https://samy.mirror.aliyuncs.com&quot;, &quot;https://oxx.mirror.aliyuncs.com&quot;]
+}
+EOF</span>
+<span class="token function">sudo</span> systemctl daemon-reload
+<span class="token function">sudo</span> systemctl restart docker
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>脚本</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># sudo docker save meeting-cy-web &gt; meeting-cy-web.tar
+# sudo docker save meeting-cy &gt; meeting-cy.tar
+#sudo docker load &lt; ./images/meeting-cy.tar
+#sudo docker load &lt; ./images/meeting-cy-web.tar
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><h2 id="docker处理"><a href="#docker处理" class="header-anchor">#</a> docker处理</h2> <p>meeting-cy-deploy</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>version: '2'
+services:
+  redis:
+    image: redis
+    volumes:
+      - /srv/meeting-cy/redis:/data
+    restart: always
+    #network_mode: host
+  mongodb:
+    image: mongo:3.4
+    ports:
+      - &quot;27018:27017&quot;
+    volumes:
+      - /srv/meeting-cy/mongodb:/data/db
+    restart: always
+    #network_mode: host
+  pdfreactor:
+    image: pdfreactor
+    volumes:
+      - /srv/meeting-cy/pdfreactor:/data/
+    restart: always
+    #network_mode: host
+  app:
+    depends_on:
+       - redis
+       - mongodb
+       - pdfreactor
+    image: meeting-cy
+    ports:
+      - &quot;8080:8080&quot;
+    volumes:
+      - /srv/meeting-cy/uploads:/usr/src/app/uploads
+      - /srv/meeting-cy/config/docker.js:/usr/src/app/server/config/environment/docker.js
+      - /srv/meeting-cy/config/libreoffice/fonts:/root/.config/libreoffice/4/user/fonts
+    restart: always
+    #network_mode: host
+  nginx:
+    depends_on:
+      - app
+    image: meeting-cy-web
+    ports:
+      - 80:80
+    volumes:
+      - /srv/meeting-cy/config/default.conf:/etc/nginx/conf.d/default.conf
+    restart: always
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br></div></div><h3 id="启动脚本"><a href="#启动脚本" class="header-anchor">#</a> 启动脚本</h3> <div class="language- line-numbers-mode"><pre class="language-text"><code>#!/bin/bash
+# sudo apt-get update
+# sudo apt-get install -y openssh-server
+#sudo dpkg -i ./docker_install/docker-ce_17.09.0-ce-0-ubuntu_amd64.deb
+#sudo dpkg -i ./docker_install/libltdl7_2.4.6-0.1_amd64.deb
+#sudo cp ./docker_install/docker-compose /usr/local/bin/docker-compose
+#sudo chmod +x /usr/local/bin/docker-compose
+#sudo docker load &lt; ./images/mongo.tar
+#sudo docker load &lt; ./images/redis.tar
+#sudo docker load &lt; ./images/pdfreactor.tar
+#sudo docker load &lt; ./images/meeting-cy.tar
+#sudo docker load &lt; ./images/meeting-cy-web.tar
+sudo mkdir -p /srv/meeting-cy/config/libreoffice
+sudo cp ./config/docker.js /srv/meeting-cy/config/docker.js
+sudo cp ./config/default.conf /srv/meeting-cy/config/default.conf
+#sudo tar zxvf config/fonts.tar.gz -C config/
+#sudo cp -R ./config/fonts  /srv/meeting-cy/config/libreoffice/
+sudo tar zxvf ./config/fonts.tar.gz -C /srv/meeting-cy/config/libreoffice/
+#sudo docker-compose rm -f
+sudo docker-compose stop
+sudo docker-compose rm
+sudo docker-compose up -d
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><h3 id="镜像设置meeting-cy"><a href="#镜像设置meeting-cy" class="header-anchor">#</a> 镜像设置meeting-cy</h3> <p>记得要考虑，老项目是pm2,不要配置cluster模式。单进程模式就可以，非必要采用cluster模式；涉及到socket共享；</p> <div class="language-yaml line-numbers-mode"><pre class="language-yaml"><code>FROM ubuntu<span class="token punctuation">:</span><span class="token number">16.04</span>
+MAINTAINER samy
+LABEL &quot;version&quot;=&quot;0.0.1&quot;
+ENV DEBIAN_FRONTEND noninteractive
+<span class="token comment">#RUN apt-get update</span>
+<span class="token comment"># RUN apt-get install -y software-properties-common</span>
+<span class="token comment"># RUN add-apt-repository -y ppa:libreoffice/ppa</span>
+<span class="token comment"># COPY sources.list /etc/apt/</span>
+RUN apt<span class="token punctuation">-</span>get update
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y sudo
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y language<span class="token punctuation">-</span>pack<span class="token punctuation">-</span>zh<span class="token punctuation">-</span>hans
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y language<span class="token punctuation">-</span>pack<span class="token punctuation">-</span>en
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y curl
+RUN curl <span class="token punctuation">-</span>sL https<span class="token punctuation">:</span>//deb.nodesource.com/setup_6.x <span class="token punctuation">|</span> bash <span class="token punctuation">-</span>
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y nodejs
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y build<span class="token punctuation">-</span>essential
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y graphicsmagick
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y calibre
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y libreoffice 
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y python2.7 python2.7<span class="token punctuation">-</span>dev make gcc
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y git
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y pdftk
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y poppler<span class="token punctuation">-</span>utils
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y vim
+RUN apt<span class="token punctuation">-</span>get install <span class="token punctuation">-</span>y unar zip
+RUN mkdir <span class="token punctuation">-</span>p /usr/src/app/uploads
+RUN mkdir <span class="token punctuation">-</span>p ~/.config/libreoffice/4/user/fonts
+WORKDIR /usr/src/app
+ENV LANG en_US.UTF<span class="token punctuation">-</span><span class="token number">8</span>
+ENV NODE_PATH=/usr/local/lib/node_modules/<span class="token punctuation">:</span>/usr/local/lib  NODE_ENV=docker
+COPY dist /usr/src/app/
+COPY docker<span class="token punctuation">-</span>process.json /usr/src/app/
+<span class="token comment">#RUN npm install -g cnpm --registry=https://registry.npm.taobao.org</span>
+<span class="token comment">#RUN cnpm install -g node-gyp</span>
+<span class="token comment">#RUN cnpm install -g pm2 </span>
+<span class="token comment">#RUN cnpm install</span>
+RUN npm install <span class="token punctuation">-</span>g node<span class="token punctuation">-</span>gyp
+RUN npm install <span class="token punctuation">-</span>g pm2 
+RUN npm install
+<span class="token comment"># ONBUILD COPY package.json /usr/src/app/</span>
+<span class="token comment"># ONBUILD RUN cnpm install</span>
+<span class="token comment"># ONBUILD COPY . /usr/src/app</span>
+CMD <span class="token punctuation">[</span> <span class="token string">&quot;pm2-docker&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;docker-process.json&quot;</span> <span class="token punctuation">]</span>
+EXPOSE 8080
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br></div></div><p><code>docker.js</code></p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token string">'use strict'</span><span class="token punctuation">;</span>
+<span class="token comment">/*eslint no-process-env:0*/</span>
+<span class="token comment">// Production specific configuration</span>
+<span class="token comment">// =================================</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Server IP</span>
+  ip<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">OPENSHIFT_NODEJS_IP</span>
+    <span class="token operator">||</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>ip
+    <span class="token operator">||</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span>
+  <span class="token comment">// Server port</span>
+  port<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">OPENSHIFT_NODEJS_PORT</span>
+    <span class="token operator">||</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">PORT</span>
+   <span class="token operator">||</span> <span class="token number">8080</span><span class="token punctuation">,</span>
+  <span class="token comment">//  || 8082,</span>
+    
+  <span class="token comment">// MongoDB connection options</span>
+  mongo<span class="token operator">:</span> <span class="token punctuation">{</span>
+    uri<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">MONGODB_URI</span>
+      <span class="token operator">||</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">MONGOHQ_URL</span>
+      <span class="token operator">||</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">OPENSHIFT_MONGODB_DB_URL</span> <span class="token operator">+</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">OPENSHIFT_APP_NAME</span>
+     <span class="token operator">||</span> <span class="token string">'mongodb://mongodb/meeting-cy'</span>
+    <span class="token comment">//  || 'mongodb://127.0.0.1/meeting-cy'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  redis<span class="token operator">:</span> <span class="token punctuation">{</span>
+    host<span class="token operator">:</span> <span class="token string">'redis'</span><span class="token punctuation">,</span>
+    port<span class="token operator">:</span> <span class="token number">6379</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  bonjour<span class="token operator">:</span> <span class="token punctuation">{</span>
+    port<span class="token operator">:</span> <span class="token number">9000</span><span class="token punctuation">,</span>
+    name<span class="token operator">:</span> <span class="token string">'onyx-meeting-server'</span><span class="token punctuation">,</span>
+    enabled<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  disabledACL<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  pdfReactor<span class="token operator">:</span> <span class="token string">'http://pdfreactor:9423/service/rest'</span><span class="token punctuation">,</span><span class="token comment">//network_mode default(bridge)</span>
+  <span class="token comment">// pdfReactor: 'http://127.0.0.1:9423/service/rest',//network_mode: host</span>
+  <span class="token comment">// host: 'http://172.29.3.227:8080/',</span>
+  host<span class="token operator">:</span> <span class="token string">'http://192.168.11.158:8080/'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br></div></div><p><code>docker-process.json</code></p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;apps&quot;</span> <span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;name&quot;</span>      <span class="token operator">:</span> <span class="token string">&quot;neocloud&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;script&quot;</span>    <span class="token operator">:</span> <span class="token string">&quot;./server&quot;</span><span class="token punctuation">,</span>
+      <span class="token comment">//&quot;instances&quot;  : 4,</span>
+      <span class="token comment">//&quot;exec_mode&quot;  : &quot;cluster&quot;,</span>
+      <span class="token property">&quot;env&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;COMMON_VARIABLE&quot;</span><span class="token operator">:</span> <span class="token string">&quot;true&quot;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;env_production&quot;</span> <span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;NODE_ENV&quot;</span><span class="token operator">:</span> <span class="token string">&quot;docker&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;PORT&quot;</span><span class="token operator">:</span> <span class="token number">8080</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><p>meeting-cy-web</p> <div class="language-dockerfile line-numbers-mode"><pre class="language-dockerfile"><code><span class="token comment"># sudo docker build -t meeting-cy-web .</span>
+<span class="token comment"># sudo docker save meeting-cy-web &gt; meeting-cy-web.tar</span>
+<span class="token keyword">FROM</span> nginx
+<span class="token keyword">COPY</span> default.conf /etc/nginx/conf.d
+<span class="token keyword">COPY</span> dist/client /usr/share/nginx/html
+<span class="token comment"># COPY dist/client_new /usr/share/nginx/html</span>
+<span class="token comment"># COPY dist/client_new_new /usr/share/nginx/html</span>
+<span class="token comment"># EXPOSE 80</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div><p>nginx.conf ;注意这里，<strong>如果跟后端一起配置在compos.yml中，记得修改为app,而不是localhost;</strong></p> <div class="language-nginx line-numbers-mode"><pre class="language-nginx"><code><span class="token keyword">upstream</span> <span class="token keyword">server</span> <span class="token punctuation">{</span>
+  least_conn<span class="token punctuation">;</span>
+  <span class="token comment">#server localhost:8080;</span>
+  <span class="token keyword">server</span> app<span class="token punctuation">:</span><span class="token number">8080</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">server</span> <span class="token punctuation">{</span>
+    <span class="token keyword">listen</span>       <span class="token number">80</span><span class="token punctuation">;</span>
+    <span class="token keyword">server_name</span>  localhost<span class="token punctuation">;</span>
+    <span class="token comment">#charset koi8-r;</span>
+    <span class="token comment">#access_log  /var/log/nginx/host.access.log  main;</span>
+    <span class="token keyword">location</span> <span class="token operator">/</span>api<span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">proxy_set_header</span> Upgrade <span class="token variable">$http_upgrade</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> Connection <span class="token string">&quot;upgrade&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_http_version</span> <span class="token number">1.1</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token keyword">server</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">location</span> <span class="token operator">/</span>socket<span class="token punctuation">.</span>io<span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">proxy_http_version</span> <span class="token number">1.1</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> Upgrade <span class="token variable">$http_upgrade</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> Connection <span class="token string">&quot;upgrade&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token keyword">server</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">location</span> <span class="token operator">/</span>s<span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">proxy_http_version</span> <span class="token number">1.1</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> Upgrade <span class="token variable">$http_upgrade</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> Connection <span class="token string">&quot;upgrade&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token keyword">server</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">location</span> <span class="token operator">/</span>uploads<span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_method</span> <span class="token operator">=</span> <span class="token string">'OPTIONS'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Allow-Origin'</span> <span class="token string">'*'</span><span class="token punctuation">;</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Allow-Methods'</span> <span class="token string">'GET, POST, OPTIONS'</span><span class="token punctuation">;</span>
+            <span class="token comment">#</span>
+            <span class="token comment"># Custom headers and headers various browsers *should* be OK with but aren't</span>
+            <span class="token comment">#</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Allow-Headers'</span> <span class="token string">'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range'</span><span class="token punctuation">;</span>
+            <span class="token comment">#</span>
+            <span class="token comment"># Tell client that this pre-flight info is valid for 20 days</span>
+            <span class="token comment">#</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Max-Age'</span> <span class="token number">1728000</span><span class="token punctuation">;</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Content-Type'</span> <span class="token string">'text/plain; charset=utf-8'</span><span class="token punctuation">;</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Content-Length'</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token number">204</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_method</span> <span class="token operator">=</span> <span class="token string">'POST'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Allow-Origin'</span> <span class="token string">'*'</span><span class="token punctuation">;</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Allow-Methods'</span> <span class="token string">'GET, POST, OPTIONS'</span><span class="token punctuation">;</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Allow-Headers'</span> <span class="token string">'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range'</span><span class="token punctuation">;</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Expose-Headers'</span> <span class="token string">'Content-Length,Content-Range'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$request_method</span> <span class="token operator">=</span> <span class="token string">'GET'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Allow-Origin'</span> <span class="token string">'*'</span><span class="token punctuation">;</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Allow-Methods'</span> <span class="token string">'GET, POST, OPTIONS'</span><span class="token punctuation">;</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Allow-Headers'</span> <span class="token string">'DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range'</span><span class="token punctuation">;</span>
+            <span class="token keyword">add_header</span> <span class="token string">'Access-Control-Expose-Headers'</span> <span class="token string">'Content-Length,Content-Range'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+         <span class="token keyword">proxy_http_version</span> <span class="token number">1.1</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> Upgrade <span class="token variable">$http_upgrade</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> Connection <span class="token string">&quot;upgrade&quot;</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> X<span class="token operator">-</span>Forwarded<span class="token operator">-</span>For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_set_header</span> Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+        <span class="token keyword">proxy_pass</span> <span class="token keyword">http</span><span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token keyword">server</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">location</span> <span class="token operator">/</span> <span class="token punctuation">{</span>
+        <span class="token keyword">root</span>   <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
+        <span class="token keyword">index</span>  <span class="token keyword">index</span><span class="token punctuation">.</span>html <span class="token keyword">index</span><span class="token punctuation">.</span>htm<span class="token punctuation">;</span>
+        <span class="token keyword">proxy_read_timeout</span> <span class="token number">150</span><span class="token punctuation">;</span>
+    <span class="token comment">#    proxy_pass   http://localhost:8080;</span>
+    <span class="token comment">#    proxy_set_header   Host    $host;</span>
+    <span class="token comment">#    proxy_set_header   X-Real-IP   $remote_addr;</span>
+    <span class="token comment">#    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">#error_page  404              /404.html;</span>
+    <span class="token comment"># redirect server error pages to the static page /50x.html</span>
+    <span class="token comment">#</span>
+    <span class="token keyword">error_page</span>   <span class="token number">500</span> <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span>  <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+    <span class="token keyword">location</span> <span class="token operator">=</span> <span class="token operator">/</span><span class="token number">50</span>x<span class="token punctuation">.</span>html <span class="token punctuation">{</span>
+        <span class="token keyword">root</span>   <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#location ~ \.php$ {</span>
+    <span class="token comment">#    proxy_pass   http://127.0.0.1;</span>
+    <span class="token comment">#}</span>
+    <span class="token comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#location ~ \.php$ {</span>
+    <span class="token comment">#    root           html;</span>
+    <span class="token comment">#    fastcgi_pass   127.0.0.1:9000;</span>
+    <span class="token comment">#    fastcgi_index  index.php;</span>
+    <span class="token comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span>
+    <span class="token comment">#    include        fastcgi_params;</span>
+    <span class="token comment">#}</span>
+    <span class="token comment"># deny access to .htaccess files, if Apache's document root</span>
+    <span class="token comment"># concurs with nginx's one</span>
+    <span class="token comment">#</span>
+    <span class="token comment">#location ~ /\.ht {</span>
+    <span class="token comment">#    deny  all;</span>
+    <span class="token comment">#}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br></div></div></div></div> <div class="page-slot page-slot-bottom"><!-- 横向自适应 -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="6620245489"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script></div> <div class="page-edit"><!----> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021/03/15, 16:11:38</span></div></div> <div class="page-nav-wapper"><div class="page-nav-centre-wrap"><a href="/rat-skill/pages/014913/" class="page-nav-centre page-nav-centre-prev"><div class="tooltip">会议系统部署优化</div></a> <a href="/rat-skill/pages/f6a16a/" class="page-nav-centre page-nav-centre-next"><div class="tooltip">项目介绍</div></a></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/rat-skill/pages/014913/" class="prev">会议系统部署优化</a></span> <span class="next"><a href="/rat-skill/pages/f6a16a/">项目介绍</a>→
+      </span></p></div></div></div> <!----></main></div> <div class="footer"><div class="icons"><a href="mailto:yessz@foxmail.com" title="发邮件" target="_blank" class="iconfont icon-youjian"></a><a href="https://github.com/samyzh" title="GitHub" target="_blank" class="iconfont icon-github"></a><a href="https://music.163.com/" title="听音乐" target="_blank" class="iconfont icon-erji"></a></div> 
+    Copyright © 2015-2021
+    <span><a href='https://my.samyz.cn' target='_blank'>友一升 | yessz</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-fanhuidingbu" style="display:none;"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-pinglun" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-zhuti"><ul class="select-box" style="display:none;"><li class="iconfont icon-zidong">跟随系统</li><li class="iconfont icon-rijianmoshi">浅色模式</li><li class="iconfont icon-yejianmoshi">深色模式</li><li class="iconfont icon-yuedu">阅读模式</li></ul></div></div> <!----> <!----> <div class="custom-html-window custom-html-window-rb" style="display:;"><div class="custom-wrapper"><i class="close-but">×</i> <div><!-- 固定160*160px -->
+      <ins class="adsbygoogle"
+          style="display:inline-block;width:160px;height:160px"
+          data-ad-client="ca-pub-7828333725993554"
+          data-ad-slot="8377369658"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      </div></div></div></div><div class="global-ui"><!----></div></div>
+    <script src="/rat-skill/assets/js/app.599d5844.js" defer></script><script src="/rat-skill/assets/js/3.f126e8d0.js" defer></script><script src="/rat-skill/assets/js/54.ed07e83c.js" defer></script><script src="/rat-skill/assets/js/11.cb3a2149.js" defer></script>
+  </body>
+</html>

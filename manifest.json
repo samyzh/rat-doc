@@ -1,0 +1,36 @@
+{
+  "name": "BDP文档中心体系",
+  "short_name": "BDP-DOC",
+  "description": "bdp doc show detail",
+  "start_url": "/rat-skill/index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#11a8cd",
+  "icons": [
+    {
+      "src": "/rat-skill/icons/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/rat-skill/icons/256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "/rat-skill/icons/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/rat-skill/icons/144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "/rat-skill/icons/128.png",
+      "type": "image/png",
+      "sizes": "128x144"
+    }
+  ]
+}
